@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { ContentPage } from "@/components/marketing";
+export const Route = createFileRoute("/booking-policies")({ head: () => ({ meta: [{ title: "Booking Policies — TopSmilesNova" }, { name: "description", content: "Read the TopSmilesNova demo booking and payment policies." }, { property: "og:title", content: "Booking Policies — TopSmilesNova" }, { property: "og:description", content: "Clear consultation, payment-review, and booking expectations." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: () => <ContentPage type="policies"/> });
