@@ -11,7 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as BookRouteImport } from './routes/book'
 import { Route as BookingPoliciesRouteImport } from './routes/booking-policies'
+import { Route as BookingStatusRouteImport } from './routes/booking-status'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as ServicesRouteImport } from './routes/services'
@@ -26,9 +28,19 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BookRoute = BookRouteImport.update({
+  id: '/book',
+  path: '/book',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BookingPoliciesRoute = BookingPoliciesRouteImport.update({
   id: '/booking-policies',
   path: '/booking-policies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookingStatusRoute = BookingStatusRouteImport.update({
+  id: '/booking-status',
+  path: '/booking-status',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -50,7 +62,9 @@ const ServicesRoute = ServicesRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/book': typeof BookRoute
   '/booking-policies': typeof BookingPoliciesRoute
+  '/booking-status': typeof BookingStatusRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/services': typeof ServicesRoute
@@ -58,7 +72,9 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/book': typeof BookRoute
   '/booking-policies': typeof BookingPoliciesRoute
+  '/booking-status': typeof BookingStatusRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/services': typeof ServicesRoute
@@ -67,7 +83,9 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/book': typeof BookRoute
   '/booking-policies': typeof BookingPoliciesRoute
+  '/booking-status': typeof BookingStatusRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/services': typeof ServicesRoute
@@ -75,15 +93,31 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/about' | '/booking-policies' | '/contact' | '/gallery' | '/services'
+    | '/'
+    | '/about'
+    | '/book'
+    | '/booking-policies'
+    | '/booking-status'
+    | '/contact'
+    | '/gallery'
+    | '/services'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/' | '/about' | '/booking-policies' | '/contact' | '/gallery' | '/services'
+    | '/'
+    | '/about'
+    | '/book'
+    | '/booking-policies'
+    | '/booking-status'
+    | '/contact'
+    | '/gallery'
+    | '/services'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/book'
     | '/booking-policies'
+    | '/booking-status'
     | '/contact'
     | '/gallery'
     | '/services'
@@ -92,7 +126,9 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  BookRoute: typeof BookRoute
   BookingPoliciesRoute: typeof BookingPoliciesRoute
+  BookingStatusRoute: typeof BookingStatusRoute
   ContactRoute: typeof ContactRoute
   GalleryRoute: typeof GalleryRoute
   ServicesRoute: typeof ServicesRoute
@@ -114,11 +150,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/book': {
+      id: '/book'
+      path: '/book'
+      fullPath: '/book'
+      preLoaderRoute: typeof BookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/booking-policies': {
       id: '/booking-policies'
       path: '/booking-policies'
       fullPath: '/booking-policies'
       preLoaderRoute: typeof BookingPoliciesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/booking-status': {
+      id: '/booking-status'
+      path: '/booking-status'
+      fullPath: '/booking-status'
+      preLoaderRoute: typeof BookingStatusRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -148,7 +198,9 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  BookRoute: BookRoute,
   BookingPoliciesRoute: BookingPoliciesRoute,
+  BookingStatusRoute: BookingStatusRoute,
   ContactRoute: ContactRoute,
   GalleryRoute: GalleryRoute,
   ServicesRoute: ServicesRoute,

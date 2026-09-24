@@ -1,0 +1,3 @@
+import { createFileRoute, Outlet } from "@tanstack/react-router";
+import { AdminShell } from "@/components/admin-dashboard";
+export const Route = createFileRoute("/admin")({ head: () => ({ meta: [{ title: "Admin — TopSmilesNova" }, { name: "description", content: "TopSmilesNova fictional administration demo." }, { property: "og:title", content: "Admin — TopSmilesNova" }, { property: "og:description", content: "Fictional booking operations demo." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }), component: () => <AdminShell><Outlet/></AdminShell> });

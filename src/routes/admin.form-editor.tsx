@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { FormEditor } from "@/components/admin-dashboard";
+export const Route = createFileRoute("/admin/form-editor")({ head: () => ({ meta: [{ title: "Form Editor — TopSmilesNova Admin" }, { name: "description", content: "Manage form editor in the fictional TopSmilesNova administration demo." }, { property: "og:title", content: "Form Editor — TopSmilesNova Admin" }, { property: "og:description", content: "TopSmilesNova operational demo." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }), component: FormEditor });
