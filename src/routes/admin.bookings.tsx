@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { BookingsAdmin } from "@/components/admin-dashboard";
+export const Route = createFileRoute("/admin/bookings")({ head: () => ({ meta: [{ title: "Bookings — TopSmilesNova Admin" }, { name: "description", content: "Manage bookings in the fictional TopSmilesNova administration demo." }, { property: "og:title", content: "Bookings — TopSmilesNova Admin" }, { property: "og:description", content: "TopSmilesNova operational demo." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }), component: BookingsAdmin });

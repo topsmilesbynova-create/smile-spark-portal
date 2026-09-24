@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { BookingFlow } from "@/components/booking-flow";
+export const Route = createFileRoute("/book")({ head: () => ({ meta: [{ title: "Book a Consultation — TopSmilesNova" }, { name: "description", content: "Choose a consultation, appointment, and submit your details to TopSmilesNova." }, { property: "og:title", content: "Book a Consultation — TopSmilesNova" }, { property: "og:description", content: "A clear, guided dental consultation booking experience." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: BookingFlow });
