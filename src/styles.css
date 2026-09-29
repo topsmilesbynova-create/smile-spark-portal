@@ -3,12 +3,116 @@
 @import "tw-animate-css";
 @custom-variant dark (&:is(.dark *));
 @theme inline {
-  --radius-sm: calc(var(--radius) - 2px); --radius-md: var(--radius); --radius-lg: calc(var(--radius) + 2px); --radius-xl: calc(var(--radius) + 4px);
-  --color-background: var(--background); --color-foreground: var(--foreground); --color-card: var(--card); --color-card-foreground: var(--card-foreground); --color-popover: var(--popover); --color-popover-foreground: var(--popover-foreground); --color-primary: var(--primary); --color-primary-foreground: var(--primary-foreground); --color-secondary: var(--secondary); --color-secondary-foreground: var(--secondary-foreground); --color-muted: var(--muted); --color-muted-foreground: var(--muted-foreground); --color-accent: var(--accent); --color-accent-foreground: var(--accent-foreground); --color-destructive: var(--destructive); --color-destructive-foreground: var(--destructive-foreground); --color-border: var(--border); --color-input: var(--input); --color-ring: var(--ring); --color-surface: var(--surface); --color-success: var(--success); --color-chart-1: var(--chart-1); --color-chart-2: var(--chart-2); --color-chart-3: var(--chart-3); --color-chart-4: var(--chart-4); --color-chart-5: var(--chart-5);
-  --font-sans: "Manrope", sans-serif; --font-display: "DM Serif Display", serif;
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+  --color-success: var(--success);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --font-sans: "Manrope", sans-serif;
+  --font-display: "DM Serif Display", serif;
 }
-:root { --radius: .4rem; --background: oklch(.145 .008 285); --foreground: oklch(.965 .012 85); --card: oklch(.205 .009 275); --card-foreground: oklch(.965 .012 85); --popover: oklch(.205 .009 275); --popover-foreground: oklch(.965 .012 85); --primary: oklch(.78 .075 82); --primary-foreground: oklch(.16 .01 275); --secondary: oklch(.27 .01 275); --secondary-foreground: oklch(.95 .01 85); --muted: oklch(.24 .009 275); --muted-foreground: oklch(.73 .015 270); --accent: oklch(.29 .02 82); --accent-foreground: oklch(.9 .04 82); --destructive: oklch(.66 .18 28); --destructive-foreground: oklch(.98 0 0); --border: oklch(.32 .01 275); --input: oklch(.34 .01 275); --ring: oklch(.78 .075 82); --surface: oklch(.185 .008 275); --success: oklch(.72 .12 155); --chart-1: oklch(.78 .075 82); --chart-2: oklch(.67 .1 155); --chart-3: oklch(.65 .1 245); --chart-4: oklch(.7 .12 45); --chart-5: oklch(.62 .12 325); }
-@layer base { * { border-color: var(--color-border); } html { scroll-behavior: smooth; } body { margin: 0; background: var(--color-background); color: var(--color-foreground); font-family: var(--font-sans); letter-spacing: 0; } button, a, input, textarea, select { letter-spacing: 0; } ::selection { background: var(--color-primary); color: var(--color-primary-foreground); } }
-@utility eyebrow { font-size: .7rem; line-height: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: .16em; color: var(--color-primary); }
-@utility section-pad { padding-block: clamp(4.5rem, 9vw, 8rem); }
-@media print { header, footer, .no-print { display: none !important; } body { background: white; color: black; } main { padding: 0 !important; } }
+:root {
+  --radius: 0.4rem;
+  --background: oklch(0.145 0.008 285);
+  --foreground: oklch(0.965 0.012 85);
+  --card: oklch(0.205 0.009 275);
+  --card-foreground: oklch(0.965 0.012 85);
+  --popover: oklch(0.205 0.009 275);
+  --popover-foreground: oklch(0.965 0.012 85);
+  --primary: oklch(0.78 0.075 82);
+  --primary-foreground: oklch(0.16 0.01 275);
+  --secondary: oklch(0.27 0.01 275);
+  --secondary-foreground: oklch(0.95 0.01 85);
+  --muted: oklch(0.24 0.009 275);
+  --muted-foreground: oklch(0.73 0.015 270);
+  --accent: oklch(0.29 0.02 82);
+  --accent-foreground: oklch(0.9 0.04 82);
+  --destructive: oklch(0.66 0.18 28);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.32 0.01 275);
+  --input: oklch(0.34 0.01 275);
+  --ring: oklch(0.78 0.075 82);
+  --surface: oklch(0.185 0.008 275);
+  --success: oklch(0.72 0.12 155);
+  --chart-1: oklch(0.78 0.075 82);
+  --chart-2: oklch(0.67 0.1 155);
+  --chart-3: oklch(0.65 0.1 245);
+  --chart-4: oklch(0.7 0.12 45);
+  --chart-5: oklch(0.62 0.12 325);
+}
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    letter-spacing: 0;
+  }
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    letter-spacing: 0;
+  }
+  ::selection {
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+}
+@utility eyebrow {
+  font-size: 0.7rem;
+  line-height: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-primary);
+}
+@utility section-pad {
+  padding-block: clamp(4.5rem, 9vw, 8rem);
+}
+@media print {
+  header,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white;
+    color: black;
+  }
+  main {
+    padding: 0 !important;
+  }
+}

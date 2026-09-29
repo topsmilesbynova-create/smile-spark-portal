@@ -1,3 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { HomePage } from "@/components/marketing";
-export const Route = createFileRoute("/")({ head: () => ({ meta: [{ title: "TopSmilesNova — Cosmetic Dental Consultations" }, { name: "description", content: "Book a thoughtful cosmetic dental consultation with TopSmilesNova." }, { property: "og:title", content: "TopSmilesNova — Cosmetic Dental Consultations" }, { property: "og:description", content: "Begin your smile consultation online with clear, considered next steps." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: HomePage });
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "TopSmilesNova — Cosmetic Dental Consultations" },
+      {
+        name: "description",
+        content: "Book a thoughtful cosmetic dental consultation with TopSmilesNova.",
+      },
+      { property: "og:title", content: "TopSmilesNova — Cosmetic Dental Consultations" },
+      {
+        property: "og:description",
+        content: "Begin your smile consultation online with clear, considered next steps.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: HomePage,
+});

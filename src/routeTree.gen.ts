@@ -21,10 +21,12 @@ import { Route as ServicesRouteImport } from './routes/services'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as AdminBookingsRouteImport } from './routes/admin.bookings'
 import { Route as AdminFormEditorRouteImport } from './routes/admin.form-editor'
+import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminPaymentSettingsRouteImport } from './routes/admin.payment-settings'
 import { Route as AdminPaymentsRouteImport } from './routes/admin.payments'
 import { Route as AdminServicesRouteImport } from './routes/admin.services'
 import { Route as AdminVisitorsRouteImport } from './routes/admin.visitors'
+import { Route as DevApiHealthRouteImport } from './routes/dev.api-health'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -86,6 +88,11 @@ const AdminFormEditorRoute = AdminFormEditorRouteImport.update({
   path: '/form-editor',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminPaymentSettingsRoute = AdminPaymentSettingsRouteImport.update({
   id: '/payment-settings',
   path: '/payment-settings',
@@ -106,6 +113,11 @@ const AdminVisitorsRoute = AdminVisitorsRouteImport.update({
   path: '/visitors',
   getParentRoute: () => AdminRoute,
 } as any)
+const DevApiHealthRoute = DevApiHealthRouteImport.update({
+  id: '/dev/api-health',
+  path: '/dev/api-health',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -119,10 +131,12 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRoute
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/form-editor': typeof AdminFormEditorRoute
+  '/admin/login': typeof AdminLoginRoute
   '/admin/payment-settings': typeof AdminPaymentSettingsRoute
   '/admin/payments': typeof AdminPaymentsRoute
   '/admin/services': typeof AdminServicesRoute
   '/admin/visitors': typeof AdminVisitorsRoute
+  '/dev/api-health': typeof DevApiHealthRoute
   '/admin/': typeof AdminIndexRoute
 }
 export interface FileRoutesByTo {
@@ -136,10 +150,12 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRoute
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/form-editor': typeof AdminFormEditorRoute
+  '/admin/login': typeof AdminLoginRoute
   '/admin/payment-settings': typeof AdminPaymentSettingsRoute
   '/admin/payments': typeof AdminPaymentsRoute
   '/admin/services': typeof AdminServicesRoute
   '/admin/visitors': typeof AdminVisitorsRoute
+  '/dev/api-health': typeof DevApiHealthRoute
   '/admin': typeof AdminIndexRoute
 }
 export interface FileRoutesById {
@@ -155,10 +171,12 @@ export interface FileRoutesById {
   '/services': typeof ServicesRoute
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/form-editor': typeof AdminFormEditorRoute
+  '/admin/login': typeof AdminLoginRoute
   '/admin/payment-settings': typeof AdminPaymentSettingsRoute
   '/admin/payments': typeof AdminPaymentsRoute
   '/admin/services': typeof AdminServicesRoute
   '/admin/visitors': typeof AdminVisitorsRoute
+  '/dev/api-health': typeof DevApiHealthRoute
   '/admin/': typeof AdminIndexRoute
 }
 export interface FileRouteTypes {
@@ -175,10 +193,12 @@ export interface FileRouteTypes {
     | '/services'
     | '/admin/bookings'
     | '/admin/form-editor'
+    | '/admin/login'
     | '/admin/payment-settings'
     | '/admin/payments'
     | '/admin/services'
     | '/admin/visitors'
+    | '/dev/api-health'
     | '/admin/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -192,10 +212,12 @@ export interface FileRouteTypes {
     | '/services'
     | '/admin/bookings'
     | '/admin/form-editor'
+    | '/admin/login'
     | '/admin/payment-settings'
     | '/admin/payments'
     | '/admin/services'
     | '/admin/visitors'
+    | '/dev/api-health'
     | '/admin'
   id:
     | '__root__'
@@ -210,10 +232,12 @@ export interface FileRouteTypes {
     | '/services'
     | '/admin/bookings'
     | '/admin/form-editor'
+    | '/admin/login'
     | '/admin/payment-settings'
     | '/admin/payments'
     | '/admin/services'
     | '/admin/visitors'
+    | '/dev/api-health'
     | '/admin/'
   fileRoutesById: FileRoutesById
 }
@@ -227,6 +251,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   GalleryRoute: typeof GalleryRoute
   ServicesRoute: typeof ServicesRoute
+  DevApiHealthRoute: typeof DevApiHealthRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -315,6 +340,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminFormEditorRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/payment-settings': {
       id: '/admin/payment-settings'
       path: '/payment-settings'
@@ -343,12 +375,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminVisitorsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/dev/api-health': {
+      id: '/dev/api-health'
+      path: '/dev/api-health'
+      fullPath: '/dev/api-health'
+      preLoaderRoute: typeof DevApiHealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 interface AdminRouteChildren {
   AdminBookingsRoute: typeof AdminBookingsRoute
   AdminFormEditorRoute: typeof AdminFormEditorRoute
+  AdminLoginRoute: typeof AdminLoginRoute
   AdminPaymentSettingsRoute: typeof AdminPaymentSettingsRoute
   AdminPaymentsRoute: typeof AdminPaymentsRoute
   AdminServicesRoute: typeof AdminServicesRoute
@@ -359,6 +399,7 @@ interface AdminRouteChildren {
 const AdminRouteChildren: AdminRouteChildren = {
   AdminBookingsRoute: AdminBookingsRoute,
   AdminFormEditorRoute: AdminFormEditorRoute,
+  AdminLoginRoute: AdminLoginRoute,
   AdminPaymentSettingsRoute: AdminPaymentSettingsRoute,
   AdminPaymentsRoute: AdminPaymentsRoute,
   AdminServicesRoute: AdminServicesRoute,
@@ -378,6 +419,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   GalleryRoute: GalleryRoute,
   ServicesRoute: ServicesRoute,
+  DevApiHealthRoute: DevApiHealthRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
